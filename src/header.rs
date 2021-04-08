@@ -632,7 +632,7 @@ impl<'a> DigestRef<'a> {
     }
 
     /// Try to decode a list of digest items, from their SCALE encoding.
-    fn from_scale_bytes(mut scale_encoded: &'a [u8]) -> Result<(Self, &'a [u8]), Error> {
+    pub fn from_scale_bytes(mut scale_encoded: &'a [u8]) -> Result<(Self, &'a [u8]), Error> {
         let digest_logs_len = {
             let len: parity_scale_codec::Compact<u64> =
                 parity_scale_codec::Decode::decode(&mut scale_encoded)
